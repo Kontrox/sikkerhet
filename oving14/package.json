@@ -1,0 +1,14 @@
+{
+  "name": "webserver",
+  "version": "1.0.0",
+  "description": "Web server",
+  "main": "httpserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Fredrik Sandvær",
+  "dependencies": {
+    "express-oauth-server": "^1.0.0"
+  }
+}

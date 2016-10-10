@@ -1,0 +1,32 @@
+#! /bin/sh
+#!/bin/bash
+
+domain=$1
+echo "DNS-oppslag på $domain: "
+dig +noall +answer +authority +additional $domain MX
+echo "Reserveoppslag på ipadressene: "
+dig +noall +answer +authority +additional $domain | grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d'A' -f2 | awk '{ print $1 }' | while read -r ipadress; do
+  dig +noall +answer -x $ipadress
+done
+
+echo "SPF-oppslag: "
+spf="$(nslookup -type=txt $domain | grep v=spf)"
+
+OIFS=$IFS
+IFS=' ' read -r -a array <<< "$spf"
+for x in "${!array[@]}"
+do
+	if [[ ${array[x]} == *"include"* ]]
+	then
+		looper="$(echo "${array[x]}" | cut -c9-)"
+		echo $looper
+		bash spflookup $looper
+	fi
+	if [[ ${array[x]} == *"ip4"* || ${array[x]} == *"ip6"* ]]
+	then
+		echo Gyldig kilde: "${array[x]}"
+	fi
+done
+
+IFS=$OIFS
+

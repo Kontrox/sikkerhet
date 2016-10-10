@@ -1,0 +1,35 @@
+<% var title = 'Simple-Web-Server' %>
+<% include head %>
+<script type="text/javascript">
+
+  function authenticate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("pwd").value;
+    var salt = "Oving12_Salt_" + username;
+    var options={keySize: 512/32, iterations: 1024};
+
+    client_hash=CryptoJS.PBKDF2(password, salt, options);
+    $.post("/authenticate", {username: username, pwd: client_hash.toString(CryptoJS.enc.hex), token: window.localStorage.accessToken},
+    function(returnedData){
+      var token = returnedData.token;
+      if (!(token === undefined) && !(token === null)) {
+        window.localStorage.accessToken = returnedData.token;
+      }
+      console.log(returnedData);
+    }).fail(function(error){
+      console.log(error.responseText);
+    });
+  }
+
+</script>
+<div class="container-fluid">
+  <h1>Authentication site</h1>
+  <div><%- message %></div>
+      <label for="username">Username:</label>
+      <input id='username' type="text" class="form-control" name="username">
+      <label for="pwd">Password:</label>
+      <input id='pwd' type="text" class="form-control" name="pwd">
+    <button onclick="authenticate()" class="btn btn-primary">Authenticate</button>
+</div>
+
+<% include foot %>

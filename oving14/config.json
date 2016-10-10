@@ -1,0 +1,11 @@
+{
+  "server": {
+    "protocol": "http",
+    "host": "localhost:3000"
+  },
+  "twitter": {
+    "key": "QAEPRZNG4ck3IBAIWpZLALYSU",
+    "secret": "xfKt9fd1tzn7UD3YQT5LkLChWIuPpIhuhIRxom7IYDjZIJFbsb",
+    "callback": "/"
+  }
+}

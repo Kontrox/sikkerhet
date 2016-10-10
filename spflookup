@@ -1,0 +1,29 @@
+#! /bin/sh
+domain=$1
+if [[ $domain != *"ip4"* && $domain != *"ip6"* ]]
+then
+	spf="$(nslookup -type=txt $domain | grep v=spf)"
+
+	OIFS=$IFS
+	IFS=' ' read -r -a array <<< "$spf"
+	for x in "${!array[@]}"
+	do
+		if [[ ${array[x]} == *"redirect"* ]]
+		then
+			looper="$(echo "${array[x]}" | cut -c10-)"
+			echo "${looper::-1}"
+			bash spflookup "${looper::-1}"
+		fi
+		if [[ ${array[x]} == *"include"* ]]
+		then
+			looper="$(echo "${array[x]}" | cut -c9-)"
+			echo $looper
+			bash spflookup $looper
+		fi
+		if [[ ${array[x]} == *"ip4"* || ${array[x]} == *"ip6"* ]]
+		then
+			echo Gyldig kilde: "${array[x]}"
+		fi
+	done
+	IFS=$OIFS
+fi

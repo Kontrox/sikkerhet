@@ -1,0 +1,55 @@
+<% var title = 'Simple-Web-Server' %>
+<% include head %>
+<script type="text/javascript">
+
+  function authenticate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("pwd").value;
+    var salt = "Oving12_Salt_" + username;
+    var options={keySize: 512/32, iterations: 1024};
+
+    client_hash=CryptoJS.PBKDF2(password, salt, options);
+
+    $.post("/authenticate", {username: username, pwd: client_hash.toString(CryptoJS.enc.hex), token: window.localStorage.accessToken},
+    function(returnedData){
+      var token = returnedData.token;
+      if (!(token === undefined) && !(token === null)) {
+        window.localStorage.accessToken = returnedData.token;
+      }
+      console.log(returnedData);
+    }).fail(function(error){
+      console.log(error.responseText);
+    });
+  }
+
+  function login(){
+    var hold = CryptoJS.lib.WordArray.random(32);
+    var oauth_nonce=hold.toString(CryptoJS.enc.Base64);
+    var oauth_signature = CryptoJS.SHA1("xfKt9fd1tzn7UD3YQT5LkLChWIuPpIhuhIRxom7IYDjZIJFbsb");
+    var timestamp = Math.floor(Date.now() / 1000);
+    console.log(oauth_signature.toString(CryptoJS.enc.hex));
+    console.log(oauth_nonce);
+    $.get("/login", {
+          oauth_consumer_key: "QAEPRZNG4ck3IBAIWpZLALYSU",
+          oauth_nonce: oauth_nonce,
+          oauth_signature: oauth_signature.toString(CryptoJS.enc.hex),
+          oauth_signature_method: "SHA1",
+          oauth_timestamp: timestamp,
+          oauth_token: "607317685-hLwatFVsJ1yiribfhh1CjlKwPxIuY04T3DqqR2PB",
+          oauth_version: 1.0
+    });
+  }
+
+</script>
+<div class="container-fluid">
+  <h1>Authentication site</h1>
+  <div><%- message %></div>
+      <label for="username">Username:</label>
+      <input id='username' type="text" class="form-control" name="username">
+      <label for="pwd">Password:</label>
+      <input id='pwd' type="text" class="form-control" name="pwd">
+    <button onclick="authenticate()" class="btn btn-primary">Authenticate</button>
+    <button onclick="login()" class="btn btn-success">Login</button>
+</div>
+
+<% include foot %>
