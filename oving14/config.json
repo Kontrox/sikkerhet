@@ -6,6 +6,6 @@
   "twitter": {
     "key": "QAEPRZNG4ck3IBAIWpZLALYSU",
     "secret": "xfKt9fd1tzn7UD3YQT5LkLChWIuPpIhuhIRxom7IYDjZIJFbsb",
-    "callback": "/"
+    "callback": "/callback"
   }
 }

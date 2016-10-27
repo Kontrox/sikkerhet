@@ -6,6 +6,19 @@ var session = require('express-session');
 var ejs = require('ejs');
 var CryptoJS = require('crypto-js');
 var jwt = require('jsonwebtoken');
+/*var twitterAuth = require('twitter-oauth')({
+  consumerKey: "QAEPRZNG4ck3IBAIWpZLALYSU",
+  domain: 'localhost',
+  consumerSecret: "xfKt9fd1tzn7UD3YQT5LkLChWIuPpIhuhIRxom7IYDjZIJFbsb",
+  loginCallback: "http://localhost:3000/twitter/sessions/callback",
+  completeCallback: "http://localhost:3000/callback"
+});*/
+var twitterAPI = require('node-twitter-api');
+var twitter = new twitterAPI({
+  consumerKey: 'QAEPRZNG4ck3IBAIWpZLALYSU',
+  consumerSecret: 'xfKt9fd1tzn7UD3YQT5LkLChWIuPpIhuhIRxom7IYDjZIJFbsb',
+  callback: 'http://localhost:3000/callback'
+});
 
 var app = module.exports = express();
 
@@ -87,8 +100,19 @@ app.get('/index', function(req, res){
   res.render('index');
 });
 
+//app.get('/twitter/sessions/connect', twitterAuth.oauthConnect);
+//app.get('/twitter/sessions/callback', twitterAuth.oauthCallback);
+//app.get('/twitter/sessions/logout', twitterAuth.logout);
+
+twitter.getRequestToken
+
+app.get('/callback', function(req, res){
+  console.log("Hei hei, Twitter");
+  res.redirect('/index')
+});
+
 app.get('/login', function(req, res){
-  res.writeHead(302,
+  /*res.writeHead(302,
     {Location: 'https://api.twitter.com/1.1/login',
     Authorization: {Oauth: {
           oauth_consumer_key: req.body.oauth_consumer_key,
@@ -100,8 +124,9 @@ app.get('/login', function(req, res){
           oauth_version: req.body.oauth_version
         }
       }
-  });
-  res.end();
+  });*/
+  console.log(req.query);
+  res.end(JSON.stringify(req.query, null, 2));
 })
 
 app.post('/authenticate', function(req, res){

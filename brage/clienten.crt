@@ -1,0 +1,83 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=Kontrox
+        Validity
+            Not Before: Oct 27 11:14:07 2016 GMT
+            Not After : Oct 25 11:14:07 2026 GMT
+        Subject: CN=Brage
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:bf:08:f2:b7:a4:5e:de:90:ac:03:67:58:ad:ca:
+                    8c:2f:75:c6:c9:11:c2:07:5a:0d:19:b5:4a:30:1a:
+                    47:19:38:d5:ef:f7:71:c9:5e:2c:6e:f6:92:34:21:
+                    bc:90:db:ee:d1:79:37:f6:85:ce:fe:f2:03:8d:14:
+                    b5:97:12:8b:92:93:7d:63:07:a4:10:b4:19:7b:11:
+                    f7:ae:08:f4:3d:19:53:02:9e:2c:30:bc:c2:b9:3a:
+                    a9:08:aa:66:57:21:1b:b8:2a:3e:f4:73:4c:fd:11:
+                    69:21:24:07:5e:22:9e:10:5a:fd:9d:c5:06:c0:aa:
+                    b3:3b:f9:16:a4:0b:08:f8:26:27:10:88:12:09:e2:
+                    80:88:3d:d0:b6:39:2b:06:a1:a6:e6:81:9f:bc:71:
+                    7d:af:e6:b6:9d:1f:9d:1a:42:bd:e1:2c:67:45:9f:
+                    70:4e:b8:ca:26:a2:46:96:22:5a:42:dd:3a:c7:da:
+                    f6:56:9a:c9:ed:a4:8f:62:ec:35:93:28:fe:44:eb:
+                    15:db:ad:4b:65:7b:c0:f5:e4:34:f5:45:d9:92:3e:
+                    c5:a6:44:38:b8:6d:16:2e:50:16:bd:8b:ea:69:62:
+                    4d:eb:fc:b1:87:b5:7b:c8:91:9d:21:a6:28:3c:fb:
+                    8c:13:68:82:81:84:27:1b:0c:b9:29:c3:d6:b1:8f:
+                    d2:3d
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                C9:B8:35:A6:CF:F8:D0:1C:25:46:34:7A:79:F6:38:00:2C:C4:AB:08
+            X509v3 Authority Key Identifier: 
+                keyid:7A:6A:95:ED:23:1A:26:F1:15:36:5E:2C:47:65:6F:B7:60:E9:74:4F
+                DirName:/CN=Kontrox
+                serial:BF:D6:70:98:D0:3B:AB:37
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha256WithRSAEncryption
+         8e:4f:bb:0c:6e:f1:37:21:42:9a:b6:e2:79:b8:d2:18:8e:95:
+         ce:20:ab:c7:2b:51:f8:57:25:20:83:8f:58:74:17:b7:98:49:
+         26:70:7f:7e:07:5a:74:a6:39:d6:c7:b8:bc:00:be:34:ea:30:
+         1b:b6:80:dc:c0:03:24:36:df:db:84:f5:dc:ba:91:92:54:9f:
+         d6:e4:62:1b:5b:04:fd:8c:da:65:fb:71:cf:ea:d8:33:88:f5:
+         d4:47:c4:23:34:4e:24:8b:76:45:20:80:f7:f3:1d:5f:b5:6c:
+         7c:26:eb:42:86:43:5b:e6:c3:59:77:c3:5e:b0:1b:08:68:2b:
+         31:c1:f3:3a:7a:7a:26:c1:a6:9d:d5:24:a9:8c:20:1e:7b:2f:
+         cf:29:12:84:6c:16:41:f7:1a:4a:8c:93:3f:e7:fe:16:3f:43:
+         d1:35:76:63:17:4c:66:b9:15:de:e8:d8:af:4d:cf:5a:7d:20:
+         3a:20:44:02:72:d6:d2:a2:3a:5a:b0:89:ab:da:93:91:be:5f:
+         b9:5a:e8:21:af:8f:8a:5b:2f:54:7f:16:af:33:8c:2c:39:00:
+         cf:74:43:3c:e7:85:00:c0:79:79:52:65:18:e3:45:b2:43:48:
+         21:9d:49:a3:f6:af:69:e7:79:ad:49:31:51:cd:dc:87:50:c2:
+         cf:d6:ae:55
+-----BEGIN CERTIFICATE-----
+MIIDMTCCAhmgAwIBAgIBAjANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdLb250
+cm94MB4XDTE2MTAyNzExMTQwN1oXDTI2MTAyNTExMTQwN1owEDEOMAwGA1UEAwwF
+QnJhZ2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/CPK3pF7ekKwD
+Z1ityowvdcbJEcIHWg0ZtUowGkcZONXv93HJXixu9pI0IbyQ2+7ReTf2hc7+8gON
+FLWXEouSk31jB6QQtBl7EfeuCPQ9GVMCniwwvMK5OqkIqmZXIRu4Kj70c0z9EWkh
+JAdeIp4QWv2dxQbAqrM7+RakCwj4JicQiBIJ4oCIPdC2OSsGoabmgZ+8cX2v5rad
+H50aQr3hLGdFn3BOuMomokaWIlpC3TrH2vZWmsntpI9i7DWTKP5E6xXbrUtle8D1
+5DT1RdmSPsWmRDi4bRYuUBa9i+ppYk3r/LGHtXvIkZ0hpig8+4wTaIKBhCcbDLkp
+w9axj9I9AgMBAAGjgZMwgZAwCQYDVR0TBAIwADAdBgNVHQ4EFgQUybg1ps/40Bwl
+RjR6efY4ACzEqwgwQgYDVR0jBDswOYAUemqV7SMaJvEVNl4sR2Vvt2DpdE+hFqQU
+MBIxEDAOBgNVBAMMB0tvbnRyb3iCCQC/1nCY0DurNzATBgNVHSUEDDAKBggrBgEF
+BQcDAjALBgNVHQ8EBAMCB4AwDQYJKoZIhvcNAQELBQADggEBAI5Puwxu8TchQpq2
+4nm40hiOlc4gq8crUfhXJSCDj1h0F7eYSSZwf34HWnSmOdbHuLwAvjTqMBu2gNzA
+AyQ239uE9dy6kZJUn9bkYhtbBP2M2mX7cc/q2DOI9dRHxCM0TiSLdkUggPfzHV+1
+bHwm60KGQ1vmw1l3w16wGwhoKzHB8zp6eibBpp3VJKmMIB57L88pEoRsFkH3GkqM
+kz/n/hY/Q9E1dmMXTGa5Fd7o2K9Nz1p9IDogRAJy1tKiOlqwiavak5G+X7la6CGv
+j4pbL1R/Fq8zjCw5AM90QzznhQDAeXlSZRjjRbJDSCGdSaP2r2nnea1JMVHN3IdQ
+ws/WrlU=
+-----END CERTIFICATE-----
